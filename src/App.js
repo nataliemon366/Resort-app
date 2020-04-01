@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import "./App.css";
 
-import Toolbar from './components/Toolbar/Toolbar' ;
-import SideDrawer from './components/SideDrawer/SideDrawer';
-import Backdrop from './components/BackDrop/Backdrop';
+import Home from "./pages/Home";
+import Rooms from "./pages/Rooms";
+import SingleRoom from "./pages/SingleRoom";
+import Error from "./pages/Error"
 
-class App extends Component {
+import {Route, Switch} from 'react-router-dom';
 
 
-  
-  render(){
-    return (
-      <div style={{height: '100%'}}>
-        <Toolbar/>
-        <SideDrawer/>
-        <Backdrop/>
-        {/* //js object */}
-        <main style={{marginTop:'64px'}}>
-        <p>This is a page w/ content </p>
-        </main>
-      </div>
-    );
-  }
-};
+function App(){
+  return (
+    <>
+    <Route exact path="/" component={Home}/>
+    <Route exact path="/rooms/" component={Rooms}/>
+    <Route exact path="/single-room/" component={SingleRoom}/>
+    <Route exact path="/error/" component={Error}/>
+   
+    </>
+  )
+}
 export default App;
